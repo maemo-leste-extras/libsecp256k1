@@ -1,0 +1,18 @@
+Description: Fix autmake failing with ...must be set with '=' before using '+='
+Author: Jonas Smedegaard <dr@jones.dk>
+License: Expat
+Last-Update: 2016-04-03
+
+--- a/Makefile.am
++++ b/Makefile.am
+@@ -114,8 +114,8 @@
+ endif
+ 
+ if USE_ECMULT_STATIC_PRECOMPUTATION
+-CPPFLAGS_FOR_BUILD +=-I$(top_srcdir)
+-CFLAGS_FOR_BUILD += -Wall -Wextra -Wno-unused-function
++CPPFLAGS_FOR_BUILD = -I$(top_srcdir)
++CFLAGS_FOR_BUILD = -Wall -Wextra -Wno-unused-function
+ 
+ gen_context_OBJECTS = gen_context.o
+ gen_context_BIN = gen_context$(BUILD_EXEEXT)

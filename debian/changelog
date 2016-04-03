@@ -1,6 +1,6 @@
-libsecp256k1 (0.1~20150202-1) UNRELEASED; urgency=low
+libsecp256k1 (0.1~20160216-1) unstable; urgency=low
 
   * Initial release.
-    Closes: bug#.
+    Closes: bug#819887.
 
- -- Jonas Smedegaard <dr@jones.dk>  Tue, 17 Jun 2014 16:09:10 +0200
+ -- Jonas Smedegaard <dr@jones.dk>  Sun, 03 Apr 2016 20:23:38 +0200

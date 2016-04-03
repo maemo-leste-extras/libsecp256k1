@@ -4,18 +4,18 @@ Priority: optional
 Build-Depends: @cdbs@
 Maintainer: Debian Bitcoin Team <pkg-bitcoin-devel@lists.alioth.debian.org>
 Uploaders: Jonas Smedegaard <dr@jones.dk>
-Standards-Version: 3.9.6
+Standards-Version: 3.9.7
 Homepage: https://github.com/bitcoin/secp256k1
-Vcs-Git: git://git.debian.org/pkg-bitcoin/libsecp256k1.git
-Vcs-Browser: http://anonscm.debian.org/gitweb/?p=pkg-bitcoin/libsecp256k1.git
+Vcs-Git: https://anonscm.debian.org/git/pkg-bitcoin/libsecp256k1.git
+Vcs-Browser: https://anonscm.debian.org/cgit/pkg-bitcoin/libsecp256k1.git
 
 Package: __LIBPKG__
 Section: libs
 Architecture: any
-Depends: ${shlibs:Depends},
- ${misc:Depends}
-Pre-Depends: ${misc:Pre-Depends},
- ${cdbs:Pre-Depends}
+Depends:
+ ${misc:Depends},
+ ${shlibs:Depends}
+Pre-Depends: ${misc:Pre-Depends}
 Multi-Arch: same
 Description: library for EC operations on curve secp256k1
  An optimized C library for EC operations on curve secp256k1.

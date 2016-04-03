@@ -5,22 +5,36 @@ Source: https://github.com/bitcoin/secp256k1
  git://github.com/bitcoin/libsecp256k1
 
 Files:
+ contrib/*.c
+ contrib/*.h
  src/*.c
  src/*.h
-Copyright: 2013-2014, Pieter Wuille <pieter.wuille@gmail.com>
+Copyright:
+  2013-2014, Diederik Huys
+  2013-2015, Pieter Wuille <pieter.wuille@gmail.com>
+  2015, Andrew Poelstra
 License-Grant:
  Distributed under the MIT software license, see the accompanying file
  COPYING or http://www.opensource.org/licenses/mit-license.php.
 License: Expat
 
 Files:
- Makefile.am
  autogen.sh
  build-aux/m4/bitcoin_secp.m4
  configure.ac
- include/secp256k1.h
+ COPYING
+ */.gitignore
+ include/*.h
  libsecp256k1.pc.in
- src/java/*
+ Makefile.am
+ */Makefile.am.include
+ README.md
+ sage/*.sage
+ src/java/*.c
+ src/java/*.h
+ src/java/*.java
+ TODO
+ .travis.yml
 Copyright: None
 License: None
 Comment:
@@ -28,19 +42,24 @@ Comment:
  license is therefore assumed (to the extend required) to be same as
  generally for this project (see topmost Files section).
 
-Files: src/field_5x52_asm_impl.h
-Copyright: 2013-2014, Diederik Huys
-  2013-2014, Pieter Wuille <pieter.wuille@gmail.com>
-License: Expat
+Files: build-aux/m4/ax_*.m4
+Copyright:
+  2008, Don Anderson <dda@sleepycat.com>
+  2008, Paolo Bonzini <bonzini@gnu.org>
+License: FSFUL~generic
 
 Files: debian/*
-Copyright: 2015, Jonas Smedegaard <js@debian.org>
+Copyright: 2015-2016, Jonas Smedegaard <js@debian.org>
 License-Grant:
  This program is free software; you can redistribute it and/or modify it
  under the terms of the GNU General Public License as published by the
  Free Software Foundation; either version 3, or (at your option) any
  later version.
 License: GPL-3+
+
+Files: debian/patches/*
+Copyright: 2016, Jonas Smedegaard <js@debian.org>
+License: Expat
 
 License: Expat
  Permission is hereby granted, free of charge, to any person obtaining a
@@ -53,6 +72,12 @@ License: Expat
  .
  The above copyright notice and this permission notice shall be included
  in all copies or substantial portions of the Software.
+
+License: FSFUL~generic
+ Copying and distribution of this file, with or without modification,
+ are permitted in any medium without royalty provided the copyright
+ notice and this notice are preserved. This file is offered as-is,
+ without any warranty.
 
 License: GPL-3+
 License-Reference: /usr/share/common-licenses/GPL-3
