@@ -1,0 +1,27 @@
+CDBS+git-buildpackage
+---------------------
+
+This source package uses CDBS and git-buildpackage.  NMUs need not (but
+are encouraged to) make special use of these tools.  In particular, the
+debian/control.in file can be completely ignored.
+
+More info here: http://wiki.debian.org/CDBS+git-buildpackage
+
+
+ -- Jonas Smedegaard <dr@jones.dk>  Mon, 18 Feb 2013 12:55:37 +0100
+
+
+Getting new upstream release
+----------------------------
+
+Upstream does not (yet?) formally tag releases of their code.
+
+Debian package releases are therefore (for now) time-based, linked to
+upstream git hash.
+
+Example:
+
+  * debian/rules get-orig-source DEB_UPSTREAM_VERSION=0.1~20160216 DEB_UPSTREAM_TARBALL_BASENAME=7b549b1
+  * gbp import-orig --pristine-tar --filter=.gitignore --sign-tags --upstream-vcs-tag=7b549b1 ../tarballs/libsecp256k1_0.1~20160216.orig.tar.gz
+
+ -- Jonas Smedegaard <dr@jones.dk>  Sun, 03 Apr 2016 15:22:19 +0200

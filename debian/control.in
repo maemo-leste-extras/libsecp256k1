@@ -1,0 +1,56 @@
+Source: libsecp256k1
+Section: libs
+Priority: optional
+Build-Depends: @cdbs@
+Maintainer: Debian Bitcoin Team <pkg-bitcoin-devel@lists.alioth.debian.org>
+Uploaders: Jonas Smedegaard <dr@jones.dk>
+Standards-Version: 3.9.6
+Homepage: https://github.com/bitcoin/secp256k1
+Vcs-Git: git://git.debian.org/pkg-bitcoin/libsecp256k1.git
+Vcs-Browser: http://anonscm.debian.org/gitweb/?p=pkg-bitcoin/libsecp256k1.git
+
+Package: libsecp256k1-0
+Section: libs
+Architecture: any
+Depends: ${shlibs:Depends},
+ ${misc:Depends}
+Pre-Depends: ${misc:Pre-Depends},
+ ${cdbs:Pre-Depends}
+Multi-Arch: same
+Description: library for EC operations on curve secp256k1
+ An optimized C library for EC operations on curve secp256k1.
+ .
+ NB! This library is a work in progress and is being used to research
+ best practices. Use at your own risk.
+ .
+ Features:
+  * secp256k1 ECDSA signing/verification and key generation.
+  * Adding/multiplying private/public keys.
+  * Serialization/parsing of private keys, public keys, signatures.
+  * Constant time, constant memory access signing and pubkey generation.
+  * Derandomized DSA (via RFC6979 or with a caller provided function.)
+  * Very efficient implementation.
+
+Package: libsecp256k1-dev
+Section: libdevel
+Architecture: any
+Multi-Arch: same
+Depends: libsecp256k1-0 (= ${binary:Version}),
+ ${devlibs:Depends},
+ ${misc:Depends}
+Description: library for EC operations on curve secp256k1 - development headers
+ An optimized C library for EC operations on curve secp256k1.
+ .
+ NB! This library is a work in progress and is being used to research
+ best practices. Use at your own risk.
+ .
+ Features:
+  * secp256k1 ECDSA signing/verification and key generation.
+  * Adding/multiplying private/public keys.
+  * Serialization/parsing of private keys, public keys, signatures.
+  * Constant time, constant memory access signing and pubkey generation.
+  * Derandomized DSA (via RFC6979 or with a caller provided function.)
+  * Very efficient implementation.
+ .
+ This package provides header files for developing your applications to
+ use libbitcoin template engine.

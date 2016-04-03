@@ -1,0 +1,103 @@
+#!/usr/bin/make -f
+# -*- mode: makefile; coding: utf-8 -*-
+# Copyright © 2015-2016 Jonas Smedegaard <dr@jones.dk>
+# Description: Main Debian packaging script for secp256k1
+#
+# This program is free software; you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation; either version 3, or (at your option)
+# any later version.
+#
+# This program is distributed in the hope that it will be useful, but
+# WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+# General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
+# This needs to run (and thus be declared) before CDBS includes
+debian/control:: debian/control.in
+DEB_PHONY_RULES += debian/control.in
+debian/control.in::
+	sed -e 's/__LIBPKG__/$(libpkg)/g' <debian/control.in.in >debian/control.in
+
+DEB_AUTO_UPDATE_LIBTOOL = pre
+DEB_AUTO_UPDATE_ACLOCAL = ,
+DEB_AUTO_UPDATE_AUTOCONF = ,
+DEB_AUTO_UPDATE_AUTOMAKE = ,
+DEB_AUTO_UPDATE_AUTOHEADER = ,
+include /usr/share/cdbs/1/rules/upstream-tarball.mk
+include /usr/share/cdbs/1/rules/utils.mk
+include /usr/share/cdbs/1/class/autotools.mk
+include /usr/share/cdbs/1/rules/debhelper.mk
+
+pkg = $(DEB_SOURCE_PACKAGE)
+stem = $(patsubst lib%,%,$(pkg))
+abi = 0
+lib = lib$(stem)
+libpkg = lib$(stem)-$(abi)
+devpkg = lib$(stem)-dev
+
+DEB_UPSTREAM_URL = https://github.com/bitcoin/secp256k1/archive
+
+# Build-depend unversioned on debhelper
+#  TODO: Drop when adopted in cdbs
+CDBS_BUILD_DEPENDS_rules_debhelper_v9 = debhelper
+
+CDBS_BUILD_DEPENDS +=, pkg-config, libgmp-dev, libssl-dev
+
+DEB_CONFIGURE_EXTRA_FLAGS += --libdir=\$${prefix}/lib/$(DEB_HOST_MULTIARCH)
+
+DEB_MAKE_CHECK_TARGET = check
+
+# Let d-shlibs calculate development package dependencies
+#  and handle shared library install
+#  * d-shlibs 0.50 required for --multiarch and --exclude-la options
+CDBS_BUILD_DEPENDS +=, d-shlibs (>= 0.50)
+binary-post-install/$(libpkg) binary-post-install/$(devpkg):: \
+ debian/stamp-local-shlibs-$(lib)
+debian/stamp-local-shlibs-$(lib): \
+ binary-install/$(libpkg) \
+ binary-install/$(devpkg)
+	d-shlibmove --commit \
+		--devunversioned \
+		--exclude-la \
+		--multiarch \
+		--override 's/libgmp10-dev/libgmp-dev/' \
+		--movedev "debian/tmp/usr/include/*" usr/include/ \
+		--movedev "debian/tmp/usr/lib/$(DEB_HOST_MULTIARCH)/pkgconfig/*" \
+			usr/lib/$(DEB_HOST_MULTIARCH)/pkgconfig \
+		debian/tmp/usr/lib/$(DEB_HOST_MULTIARCH)/$(lib).so
+	touch $@
+clean::
+	rm -f debian/stamp-local-shlibs-$(lib)
+
+# create autotools files from scratch during build
+auxdir = build-aux
+macrodir = $(auxdir)/m4
+makefiledirs = .
+autoheaders = src/libsecp256k1-config.h
+files_autotools_core = $(auxdir)/config.guess $(auxdir)/config.sub
+stems_m4_libtool = libtool ltoptions ltsugar ltversion lt~obsolete
+files_libtool = $(auxdir)/ltmain.sh $(stems_m4_libtool:%=$(macrodir)/%.m4)
+stems_m4_autoconf = pkg
+stems_aux_autoconf = compile install-sh missing
+files_autoconf = aclocal.m4 configure $(stems_aux_autoconf:%=$(auxdir)/%)
+files_autoconf += $(stems_m4_autoconf:%=$(macrodir)/%.m4)
+files_automake = $(auxdir)/depcomp $(makefiledirs:=/Makefile.in)
+files_automake += $(auxdir)/test-driver
+files_autoheader = config.h.in $(autoheaders:=.in)
+files_configure = config.log
+files_autotools = $(files_autotools_core) $(files_libtool)
+files_autotools += $(files_aclocal) $(files_autoconf) $(files_automake)
+files_autotools += $(files_autoheader) $(files_configure)
+DEB_ACLOCAL_ARGS = -I$(macrodir) --install --force
+DEB_AUTOMAKE_ARGS = --add-missing --copy --foreign --force
+DEB_MAKE_CLEAN_TARGET = distclean
+makefile-clean::
+	rm -rf autom4te.cache
+	rm -f $(filter-out $(DEB_UPSTREAM_CRUFT_MOVE),$(files_autotools))
+clean::
+	rm -f $(filter-out $(DEB_UPSTREAM_CRUFT_MOVE),$(files_autotools_core))
+	test ! -d $(auxdir) || rmdir --ignore-fail-on-non-empty $(auxdir)

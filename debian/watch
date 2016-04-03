@@ -1,0 +1,4 @@
+version=4
+opts="filenamemangle=s%(?:.*?)?v?(\d[\d.]*)\.tar\.gz%secp256k1-$1.tar.gz%" \
+ https://github.com/bitcoin/secp256k1/tags \
+ (?:.*?/)?v?(\d[\d.]*)\.tar\.gz debian
