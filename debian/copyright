@@ -1,8 +1,8 @@
 Format: http://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
-Upstream-Contact: https://github.com/bitcoin/libsecp256k1/issues
+Upstream-Contact: https://github.com/bitcoin/secp256k1/issues
 Upstream-Name: secp256k1
 Source: https://github.com/bitcoin/secp256k1
- git://github.com/bitcoin/libsecp256k1
+ git://github.com/bitcoin/secp256k1
 
 Files:
  contrib/*.c
