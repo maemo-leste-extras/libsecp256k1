@@ -13,8 +13,6 @@ Build-Depends: cdbs (>= 0.4.123~),
  libssl-dev,
  autoconf-archive,
  dpkg-dev (>= 1.17.0),
- default-jdk-headless | default-jdk,
- libguava-java,
  d-shlibs (>= 0.50),
  pkg-kde-tools
 Maintainer: Debian Bitcoin Team <pkg-bitcoin-devel@lists.alioth.debian.org>
