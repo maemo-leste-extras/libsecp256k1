@@ -57,8 +57,10 @@ DEB_CONFIGURE_EXTRA_FLAGS += \
  --enable-module-recovery \
  $(if $(EXP_RELEASE),--enable-experimental)
 
-CDBS_BUILD_DEPENDS +=, default-jdk-headless | default-jdk, libguava-java
-DEB_CONFIGURE_EXTRA_FLAGS += --enable-jni
+# avoid accidentally linking against disabled experimental modules
+#CDBS_BUILD_DEPENDS +=, default-jdk-headless | default-jdk, libguava-java
+#DEB_CONFIGURE_EXTRA_FLAGS += --enable-jni
+DEB_CONFIGURE_EXTRA_FLAGS += --disable-jni
 
 DEB_MAKE_CHECK_TARGET = check
 
