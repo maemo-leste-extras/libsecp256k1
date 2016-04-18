@@ -64,6 +64,9 @@ DEB_CONFIGURE_EXTRA_FLAGS += --disable-jni
 
 DEB_MAKE_CHECK_TARGET = check
 
+# relax symbols check when targeting experimental
+export DPKG_GENSYMBOLS_CHECK_LEVEL=$(if $(EXP_RELEASE),0)
+
 # Let d-shlibs calculate development package dependencies
 #  and handle shared library install
 #  * d-shlibs 0.50 required for --multiarch and --exclude-la options
