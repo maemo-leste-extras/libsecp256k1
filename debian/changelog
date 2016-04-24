@@ -1,8 +1,9 @@
-libsecp256k1 (0.1~20160216-3) UNRELEASED; urgency=medium
+libsecp256k1 (0.1~20160216-3) unstable; urgency=medium
 
   * Relax symbols check on experimental builds.
+  * Declare compliance with Debian Policy 3.9.8.
 
- -- Jonas Smedegaard <dr@jones.dk>  Mon, 18 Apr 2016 12:02:13 +0200
+ -- Jonas Smedegaard <dr@jones.dk>  Sun, 24 Apr 2016 19:16:59 +0200
 
 libsecp256k1 (0.1~20160216-2) unstable; urgency=medium
 
