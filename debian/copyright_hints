@@ -89,10 +89,7 @@ Files: Makefile.am
  sage/group_prover.sage
  sage/secp256k1.sage
  sage/weierstrass_prover.sage
- src/java/org/bitcoin/NativeSecp256k1.java
  src/java/org/bitcoin/NativeSecp256k1Test.java
- src/java/org/bitcoin/NativeSecp256k1Util.java
- src/java/org/bitcoin/Secp256k1Context.java
  src/java/org_bitcoin_NativeSecp256k1.c
  src/java/org_bitcoin_NativeSecp256k1.h
  src/java/org_bitcoin_Secp256k1Context.c
@@ -111,6 +108,12 @@ Copyright: 2015, Andrew Poelstra
 License: Expat
  FIXME
 
+Files: src/java/org/bitcoin/NativeSecp256k1Util.java
+ src/java/org/bitcoin/Secp256k1Context.java
+Copyright: 2014-2016, the libsecp256k1 contributors
+License: Apache-2.0
+ FIXME
+
 Files: src/bench_ecdh.c
  src/ecmult_const_impl.h
 Copyright: 2015, Pieter Wuille, Andrew Poelstra
@@ -121,6 +124,12 @@ Files: src/ecmult_gen_impl.h
  src/tests.c
 Copyright: 2013-2015, Pieter Wuille, Gregory Maxwell
 License: Expat
+ FIXME
+
+Files: src/java/org/bitcoin/NativeSecp256k1.java
+Copyright: 2013, Google Inc.
+  2014-2016, the libsecp256k1 contributors
+License: Apache-2.0
  FIXME
 
 Files: src/field_5x52_asm_impl.h

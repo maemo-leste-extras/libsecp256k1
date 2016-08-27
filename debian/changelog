@@ -1,3 +1,33 @@
+libsecp256k1 (0.1~20160804-1) unstable; urgency=medium
+
+  [ upstream ]
+  * Snapshot from upstream git.
+    + align shared files copyright/comments to bitcoinj's.
+    + Add some missing VERIFY_CHECK(ctx != NULL) for functions that use
+      ARG_CHECK.
+    + bench_ecdh: fix call to secp256k1_context_create.
+    + Cast pointers through uintptr_t under JNI.
+    + Update bitcoin-core GitHub links.
+    + JNI: Only call ecdsa_verify if its inputs parsed correctly.
+    + Add testcase which hits additional branch in secp256k1_scalar_sqr.
+    + Fix state size in sha256 struct.
+    + Fix undefs in hash_impl.h.
+    + ARM assembly implementation of field_10x26 inner.
+    + Test whether ECDH and Schnorr are enabled for JNI.
+    + build: verify that the native compiler works for static precomp.
+    + ecmult_const: unify endomorphism and non-endomorphism skew cases.
+    + Add Jacobi symbol test via GMP.
+    + Add function for testing quadratic residue field/group elements.
+    + configure: add flag to disable OpenSSL tests.
+    + Make secp256k1_fe_sqrt constant time.
+    + Add string.h include to ecmult_impl.
+
+  [ Jonas Smedegaard ]
+  * Modernize CDBS: Build-depend on licensecheck (not devscripts).
+  * Update copyright info: Adjust some files now licensed Apache-2.0.
+
+ -- Jonas Smedegaard <dr@jones.dk>  Sat, 27 Aug 2016 13:53:04 +0200
+
 libsecp256k1 (0.1~20160216-3) unstable; urgency=medium
 
   * Relax symbols check on experimental builds.
