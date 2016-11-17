@@ -22,6 +22,6 @@ upstream git hash.
 Example:
 
   * debian/rules get-orig-source DEB_UPSTREAM_VERSION=0.1~20160216 DEB_UPSTREAM_TARBALL_BASENAME=7b549b1
-  * gbp import-orig --pristine-tar --filter=.gitignore --sign-tags --upstream-vcs-tag=7b549b1 ../tarballs/libsecp256k1_0.1~20160216.orig.tar.gz
+  * gbp import-orig --upstream-vcs-tag=7b549b1 ../tarballs/libsecp256k1_0.1~20160216.orig.tar.gz
 
  -- Jonas Smedegaard <dr@jones.dk>  Sun, 03 Apr 2016 15:22:19 +0200
