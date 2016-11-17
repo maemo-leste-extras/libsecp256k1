@@ -58,7 +58,7 @@ Files: build-aux/m4/ax_*.m4
 Copyright:
   2008, Don Anderson <dda@sleepycat.com>
   2008, Paolo Bonzini <bonzini@gnu.org>
-License: FSFUL~generic
+License: FSFAP
 
 Files: debian/*
 Copyright: 2015-2016, Jonas Smedegaard <js@debian.org>
@@ -85,7 +85,7 @@ License: Expat
  The above copyright notice and this permission notice shall be included
  in all copies or substantial portions of the Software.
 
-License: FSFUL~generic
+License: FSFAP
  Copying and distribution of this file, with or without modification,
  are permitted in any medium without royalty provided the copyright
  notice and this notice are preserved. This file is offered as-is,
