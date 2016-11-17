@@ -5,7 +5,7 @@ Last-Update: 2016-04-03
 
 --- a/Makefile.am
 +++ b/Makefile.am
-@@ -114,8 +114,8 @@
+@@ -127,8 +127,8 @@
  endif
  
  if USE_ECMULT_STATIC_PRECOMPUTATION
