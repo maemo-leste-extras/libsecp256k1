@@ -1,3 +1,28 @@
+libsecp256k1 (0.1~20161026-1) unstable; urgency=medium
+
+  [ upstream ]
+  * Snapshot from upstream git.
+    + Fix secp256k1_fe_inv_all_var parameter order.
+    + Fix secp256k1_ge_set_all_gej_var parameter order.
+    + Fix secp256k1_ge_set_table_gej_var parameter order.
+    + Remove guarantees about memcmp-ability.
+    + Fix auto-enabled static precompuatation.
+    + Update scalar_4x64_impl.h.
+    + Restructure nonce clearing.
+
+  [ Jonas Smedegaard ]
+  * Update watch file: Use substitution string @PACKAGE@.
+  * Refresh patch.
+  * Simplify README.source: Skip options set in gbp.conf.
+  * Update copyright info:
+    + Use license shortname FSFAP (not FSFUL~generic).
+    + Add another copyright holder (no new license).
+  * Build-depend on libssl1.0-dev (with older libssl-dev as fallback):
+    OpenSSL 1.1 not yet supported upstream.
+    Closes: Bug#828412. Thanks to Kurt Roeckx.
+
+ -- Jonas Smedegaard <dr@jones.dk>  Thu, 17 Nov 2016 01:49:54 +0100
+
 libsecp256k1 (0.1~20160804-1) unstable; urgency=medium
 
   [ upstream ]

@@ -97,7 +97,7 @@ Files: Makefile.am
  src/modules/ecdh/Makefile.am.include
  src/modules/recovery/Makefile.am.include
  src/modules/schnorr/Makefile.am.include
-Copyright: *No copyright*
+Copyright: NONE
 License: UNKNOWN
  FIXME
 
@@ -142,18 +142,23 @@ Copyright: 2013-2015, Thomas Daede, Cory Fields
 License: Expat
  FIXME
 
-Files: debian/rules
-Copyright: 2015-2016, Jonas Smedegaard <dr@jones.dk>
-License: GPL-3+
+Files: src/asm/field_10x26_arm.s
+Copyright: 2014, Wladimir J. van der Laan
+License: Expat
  FIXME
 
 Files: build-aux/m4/ax_jni_include_dir.m4
 Copyright: 2008, Don Anderson <dda@sleepycat.com>
-License: UNKNOWN
+License: FSFAP
  FIXME
 
 Files: build-aux/m4/ax_prog_cc_for_build.m4
 Copyright: 2008, Paolo Bonzini <bonzini@gnu.org>
-License: UNKNOWN
+License: FSFAP
+ FIXME
+
+Files: debian/rules
+Copyright: 2015-2016, Jonas Smedegaard <dr@jones.dk>
+License: GPL-3+
  FIXME
 
