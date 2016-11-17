@@ -60,6 +60,10 @@ Copyright:
   2008, Paolo Bonzini <bonzini@gnu.org>
 License: FSFAP
 
+Files: src/asm/field_10x26_arm.s
+Copyright: 2014, Wladimir J. van der Laan
+License: Expat
+
 Files: debian/*
 Copyright: 2015-2016, Jonas Smedegaard <js@debian.org>
 License-Grant:
