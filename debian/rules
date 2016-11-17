@@ -45,7 +45,8 @@ DEB_UPSTREAM_URL = https://github.com/bitcoin/secp256k1/archive
 #  TODO: Drop when adopted in cdbs
 CDBS_BUILD_DEPENDS_rules_debhelper_v9 = debhelper
 
-CDBS_BUILD_DEPENDS +=, pkg-config, libgmp-dev, libssl-dev, autoconf-archive
+CDBS_BUILD_DEPENDS +=, pkg-config, libgmp-dev, autoconf-archive
+CDBS_BUILD_DEPENDS +=, libssl1.0-dev | libssl-dev (<< 1.1~)
 
 # resolve if release is experimental
 CDBS_BUILD_DEPENDS +=, dpkg-dev (>= 1.17.0)
