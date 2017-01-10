@@ -41,10 +41,6 @@ devpkg = lib$(stem)-dev
 
 DEB_UPSTREAM_URL = https://github.com/bitcoin/secp256k1/archive
 
-# Build-depend unversioned on debhelper
-#  TODO: Drop when adopted in cdbs
-CDBS_BUILD_DEPENDS_rules_debhelper_v9 = debhelper
-
 CDBS_BUILD_DEPENDS +=, pkg-config, libgmp-dev, autoconf-archive
 CDBS_BUILD_DEPENDS +=, libssl1.0-dev | libssl-dev (<< 1.1~)
 
