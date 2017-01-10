@@ -1,3 +1,27 @@
+libsecp256k1 (0.1~20161228-1) unstable; urgency=medium
+
+  [ upstream ]
+  * Snapshot from upstream git.
+    + Remove Schnorr experiment.
+    + Add exhaustive tests.
+    + ecdsa_impl: replace scalar if-checks with VERIFY_CHECKs in
+      ecdsa_sig_sign.
+    + ecdh: test NULL-checking of arguments.
+    + recovery: add tests to cover API misusage.
+    + configure: add --enable-coverage to set options for coverage
+      analysis.
+    + group_impl.h: remove unused `secp256k1_ge_set_infinity` function.
+    + Make the libcrypto detection fail the newer API.
+
+  [ Jonas Smedegaard ]
+  * Modernize git-buildpackage config: Filter any .git* file.
+  * Drop obsolete lintian override regarding debhelper 9.
+  * Unfuzz patch.
+  * Update copyright info: Extend coverage of Debian packaging.
+  * Build-depend on libssl-dev (not libssl1.0-dev).
+
+ -- Jonas Smedegaard <dr@jones.dk>  Tue, 10 Jan 2017 22:34:00 +0100
+
 libsecp256k1 (0.1~20161026-1) unstable; urgency=medium
 
   [ upstream ]
