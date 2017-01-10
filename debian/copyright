@@ -74,7 +74,7 @@ License-Grant:
 License: GPL-3+
 
 Files: debian/patches/*
-Copyright: 2016, Jonas Smedegaard <js@debian.org>
+Copyright: 2016-2017, Jonas Smedegaard <js@debian.org>
 License: Expat
 
 License: Expat
