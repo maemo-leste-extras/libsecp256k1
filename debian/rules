@@ -41,6 +41,10 @@ devpkg = lib$(stem)-dev
 
 DEB_UPSTREAM_URL = https://github.com/bitcoin/secp256k1/archive
 
+# suppress checking license during build
+DEB_COPYRIGHT_CHECK_LICENSECHECK =
+CDBS_BUILD_DEPENDS_rules_utils_copyright-check =
+
 CDBS_BUILD_DEPENDS +=, pkg-config, libgmp-dev, autoconf-archive
 CDBS_BUILD_DEPENDS +=, libssl-dev
 
