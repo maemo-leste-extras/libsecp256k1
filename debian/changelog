@@ -1,3 +1,35 @@
+libsecp256k1 (0.1~20170810-1) unstable; urgency=medium
+
+  [ upstream ]
+  * Snapshot from upstream git.
+    + Add secp256k1_ec_pubkey_negate and secp256k1_ec_privkey_negate.
+    + Fix typos in code comments and documentation.
+    + Document secp256k1_context_randomize.
+    + Use checked_alloc in test.
+    + Remove executable bit from secp256k1.c
+    + Minor optimizations to _scalar_inverse to save 4M.
+    + Unroll secp256k1_fe_(get|set)_b32 for 5x52.
+    + Unroll secp256k1_fe_(get|set)_b32 for 10x26.
+    + Fix benchmark print_number infinite loop.
+    + Further shorten the addition chain for scalar inversion.
+    + Remove residual parts from the schnorr expirement.
+    + add pubkey prefix constants to include/secp256k1.h.
+    + Remove redundant conditional expression.
+    + Fix wnaf_const documentation with respect to return value and
+      number of words set.
+
+  [ Jonas Smedegaard ]
+  * Modernize Vcs-* fields: Use git (not cgit) in path.
+  * Declare compliance with Debian Policy 4.0.1.
+  * Advertise DEP3 format in patch headers.
+  * Modernize cdbs:
+    + Do copyright-check in maintainer script (not during build).
+    + Relax to build-depend unversioned on cdbs.
+    + Stop build-depend on licensecheck.
+  * Update symbols file.
+
+ -- Jonas Smedegaard <dr@jones.dk>  Fri, 18 Aug 2017 13:23:27 +0200
+
 libsecp256k1 (0.1~20161228-1) unstable; urgency=medium
 
   [ upstream ]

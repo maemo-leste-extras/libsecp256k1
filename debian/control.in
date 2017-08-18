@@ -4,10 +4,10 @@ Priority: optional
 Build-Depends: @cdbs@
 Maintainer: Debian Bitcoin Team <pkg-bitcoin-devel@lists.alioth.debian.org>
 Uploaders: Jonas Smedegaard <dr@jones.dk>
-Standards-Version: 3.9.8
+Standards-Version: 4.0.1
 Homepage: https://github.com/bitcoin/secp256k1
 Vcs-Git: https://anonscm.debian.org/git/pkg-bitcoin/libsecp256k1.git
-Vcs-Browser: https://anonscm.debian.org/cgit/pkg-bitcoin/libsecp256k1.git
+Vcs-Browser: https://anonscm.debian.org/git/pkg-bitcoin/libsecp256k1.git
 
 Package: libsecp256k1-0
 Section: libs

@@ -12,7 +12,6 @@ Files: contrib/lax_der_parsing.c
  src/bench.h
  src/bench_internal.c
  src/bench_recover.c
- src/bench_schnorr_verify.c
  src/bench_sign.c
  src/bench_verify.c
  src/ecdsa.h
@@ -144,7 +143,14 @@ License: FSFAP
  FIXME
 
 Files: debian/rules
+Copyright: -check =
+  2016-2017, Jonas Smedegaard <dr@jones.dk>
+License: GPL-3+
+ FIXME
+
+Files: debian/copyright-check
 Copyright: 2016-2017, Jonas Smedegaard <dr@jones.dk>
+  check
 License: GPL-3+
  FIXME
 
