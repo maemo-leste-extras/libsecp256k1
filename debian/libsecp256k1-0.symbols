@@ -1,4 +1,4 @@
-# SymbolsHelper-Confirmed: 0.1~20160216 amd64
+# SymbolsHelper-Confirmed: 0.1~20170810 amd64
 libsecp256k1.so.0 libsecp256k1-0 #MINVER#
  secp256k1_context_clone@Base 0.1~20160216
  secp256k1_context_create@Base 0.1~20160216
@@ -6,10 +6,12 @@ libsecp256k1.so.0 libsecp256k1-0 #MINVER#
  secp256k1_context_randomize@Base 0.1~20160216
  secp256k1_context_set_error_callback@Base 0.1~20160216
  secp256k1_context_set_illegal_callback@Base 0.1~20160216
+ secp256k1_ec_privkey_negate@Base 0.1~20170810
  secp256k1_ec_privkey_tweak_add@Base 0.1~20160216
  secp256k1_ec_privkey_tweak_mul@Base 0.1~20160216
  secp256k1_ec_pubkey_combine@Base 0.1~20160216
  secp256k1_ec_pubkey_create@Base 0.1~20160216
+ secp256k1_ec_pubkey_negate@Base 0.1~20170810
  secp256k1_ec_pubkey_parse@Base 0.1~20160216
  secp256k1_ec_pubkey_serialize@Base 0.1~20160216
  secp256k1_ec_pubkey_tweak_add@Base 0.1~20160216
