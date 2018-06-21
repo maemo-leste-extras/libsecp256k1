@@ -72,7 +72,6 @@ Files: Makefile.am
  debian/patches/fix_automake.patch
  debian/patches/series
  debian/source/format
- debian/source/lintian-overrides
  debian/watch
  include/secp256k1.h
  include/secp256k1_ecdh.h
@@ -142,15 +141,14 @@ Copyright: 2008, Paolo Bonzini <bonzini@gnu.org>
 License: FSFAP
  FIXME
 
-Files: debian/rules
-Copyright: -check =
-  2016-2017, Jonas Smedegaard <dr@jones.dk>
+Files: debian/copyright-check
+Copyright: 2016-2017, Jonas Smedegaard <dr@jones.dk>
 License: GPL-3+
  FIXME
 
-Files: debian/copyright-check
-Copyright: 2016-2017, Jonas Smedegaard <dr@jones.dk>
-  check
+Files: debian/rules
+Copyright: -check =
+  2016-2017, Jonas Smedegaard <dr@jones.dk>
 License: GPL-3+
  FIXME
 
@@ -166,6 +164,14 @@ License: UNKNOWN
 
 Files: src/asm/field_10x26_arm.s
 Copyright: 2014, Wladimir J. van der Laan
+License: UNKNOWN
+ FIXME
+
+Files: debian/source/lintian-overrides
+Copyright: Apache-2.0
+  GPL-3+
+  apache-2.0
+  gpl-3+
 License: UNKNOWN
  FIXME
 

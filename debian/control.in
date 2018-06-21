@@ -2,12 +2,12 @@ Source: libsecp256k1
 Section: libs
 Priority: optional
 Build-Depends: @cdbs@
-Maintainer: Debian Bitcoin Team <pkg-bitcoin-devel@lists.alioth.debian.org>
+Maintainer: Debian Cryptocoin Team <team+cryptocoin@tracker.debian.org>
 Uploaders: Jonas Smedegaard <dr@jones.dk>
-Standards-Version: 4.0.1
+Standards-Version: 4.1.4
 Homepage: https://github.com/bitcoin/secp256k1
-Vcs-Git: https://anonscm.debian.org/git/pkg-bitcoin/libsecp256k1.git
-Vcs-Browser: https://anonscm.debian.org/git/pkg-bitcoin/libsecp256k1.git
+Vcs-Git: https://salsa.debian.org/cryptocoin-team/libsecp256k1.git
+Vcs-Browser: https://salsa.debian.org/cryptocoin-team/libsecp256k1
 
 Package: libsecp256k1-0
 Section: libs
