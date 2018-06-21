@@ -49,7 +49,6 @@ CDBS_BUILD_DEPENDS +=, pkg-config, libgmp-dev, autoconf-archive
 CDBS_BUILD_DEPENDS +=, libssl-dev
 
 # resolve if release is experimental
-CDBS_BUILD_DEPENDS +=, dpkg-dev (>= 1.17.0)
 EXP_RELEASE = $(filter experimental% UNRELEASED,$(shell dpkg-parsechangelog -S Distribution))
 
 DEB_CONFIGURE_EXTRA_FLAGS += \
