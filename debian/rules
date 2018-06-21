@@ -70,7 +70,7 @@ export DPKG_GENSYMBOLS_CHECK_LEVEL=$(if $(EXP_RELEASE),0,1)
 # Let d-shlibs calculate development package dependencies
 #  and handle shared library install
 #  * d-shlibs 0.50 required for --multiarch and --exclude-la options
-CDBS_BUILD_DEPENDS +=, d-shlibs (>= 0.50)
+CDBS_BUILD_DEPENDS +=, d-shlibs
 binary-post-install/$(libpkg) binary-post-install/$(devpkg):: \
  debian/stamp-local-shlibs-$(lib)
 debian/stamp-local-shlibs-$(lib): \
