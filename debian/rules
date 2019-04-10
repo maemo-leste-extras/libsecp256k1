@@ -1,11 +1,6 @@
 #!/usr/bin/make -f
 
-DEB_AUTO_UPDATE_LIBTOOL = pre
-DEB_AUTO_UPDATE_ACLOCAL = ,
-DEB_AUTO_UPDATE_AUTOCONF = ,
-DEB_AUTO_UPDATE_AUTOMAKE = ,
-DEB_AUTO_UPDATE_AUTOHEADER = ,
-include /usr/share/cdbs/1/rules/utils.mk
+include /usr/share/cdbs/1/rules/autoreconf.mk
 include /usr/share/cdbs/1/class/autotools.mk
 include /usr/share/cdbs/1/rules/debhelper.mk
 
@@ -15,9 +10,6 @@ abi = 0
 lib = lib$(stem)
 libpkg = lib$(stem)-$(abi)
 devpkg = lib$(stem)-dev
-
-# suppress checking license during build
-DEB_COPYRIGHT_CHECK_LICENSECHECK =
 
 # resolve if release is experimental
 EXP_RELEASE = $(filter experimental% UNRELEASED,$(shell dpkg-parsechangelog -S Distribution))
@@ -57,38 +49,6 @@ debian/stamp-local-shlibs-$(lib): \
 	touch $@
 clean::
 	rm -f debian/stamp-local-shlibs-$(lib)
-
-# create autotools files from scratch during build
-auxdir = build-aux
-macrodir = $(auxdir)/m4
-makefiledirs = .
-autoheaders = src/$(lib)-config.h
-files_autotools_core = $(auxdir)/config.guess $(auxdir)/config.sub
-stems_m4_libtool = libtool ltoptions ltsugar ltversion lt~obsolete
-files_libtool = $(auxdir)/ltmain.sh $(stems_m4_libtool:%=$(macrodir)/%.m4)
-stems_m4_autoconf = pkg
-stems_aux_autoconf = compile install-sh missing
-files_autoconf = aclocal.m4 configure $(stems_aux_autoconf:%=$(auxdir)/%)
-files_autoconf += $(stems_m4_autoconf:%=$(macrodir)/%.m4)
-stems_m4_archive = jni_include_dir prog_cc_for_build
-files_archive = $(stems_m4_archive:%=$(macrodir)/ax_%.m4)
-files_automake = $(auxdir)/depcomp $(makefiledirs:=/Makefile.in)
-files_automake += $(auxdir)/test-driver
-files_autoheader = config.h.in $(autoheaders:=.in)
-files_configure = config.log
-stems_autotools = autotools_core libtool aclocal autoconf automake
-stems_autotools += autoheader configure archive
-files_autotools = $(foreach var,$(stems_autotools),$(files_$(var)))
-DEB_UPSTREAM_CRUFT_MOVE = $(files_archive)
-DEB_ACLOCAL_ARGS = -I$(macrodir) --install --force
-DEB_AUTOMAKE_ARGS = --add-missing --copy --foreign --force
-DEB_MAKE_CLEAN_TARGET = distclean
-makefile-clean::
-	rm -rf autom4te.cache
-	rm -f $(filter-out $(DEB_UPSTREAM_CRUFT_MOVE),$(files_autotools))
-clean::
-	rm -f $(filter-out $(DEB_UPSTREAM_CRUFT_MOVE),$(files_autotools_core))
-	test ! -d $(auxdir) || rmdir --ignore-fail-on-non-empty $(auxdir)
 
 # track symbols using pkgkde-symbolshelper
 include /usr/share/pkg-kde-tools/makefiles/1/cdbs/symbolshelper.mk

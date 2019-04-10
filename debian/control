@@ -3,9 +3,8 @@ Section: libs
 Priority: optional
 Build-Depends: cdbs,
  libtool,
- automake,
- autoconf,
  debhelper,
+ dh-autoreconf,
  pkg-config,
  libgmp-dev,
  autoconf-archive,
