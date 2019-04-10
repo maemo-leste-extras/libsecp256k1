@@ -21,10 +21,6 @@ DEB_UPSTREAM_URL = https://github.com/bitcoin/secp256k1/archive
 
 # suppress checking license during build
 DEB_COPYRIGHT_CHECK_LICENSECHECK =
-CDBS_BUILD_DEPENDS_rules_utils_copyright-check =
-
-CDBS_BUILD_DEPENDS +=, pkg-config, libgmp-dev, autoconf-archive
-CDBS_BUILD_DEPENDS +=, libssl-dev
 
 # resolve if release is experimental
 EXP_RELEASE = $(filter experimental% UNRELEASED,$(shell dpkg-parsechangelog -S Distribution))
@@ -47,8 +43,6 @@ export DPKG_GENSYMBOLS_CHECK_LEVEL=$(if $(EXP_RELEASE),0,1)
 
 # Let d-shlibs calculate development package dependencies
 #  and handle shared library install
-#  * d-shlibs 0.50 required for --multiarch and --exclude-la options
-CDBS_BUILD_DEPENDS +=, d-shlibs
 binary-post-install/$(libpkg) binary-post-install/$(devpkg):: \
  debian/stamp-local-shlibs-$(lib)
 debian/stamp-local-shlibs-$(lib): \
@@ -100,5 +94,4 @@ clean::
 	test ! -d $(auxdir) || rmdir --ignore-fail-on-non-empty $(auxdir)
 
 # track symbols using pkgkde-symbolshelper
-CDBS_BUILD_DEPENDS +=, pkg-kde-tools
 include /usr/share/pkg-kde-tools/makefiles/1/cdbs/symbolshelper.mk
