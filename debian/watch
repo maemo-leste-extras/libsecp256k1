@@ -1,5 +1,7 @@
-# run "uscan --report" to check or "gbp import-orig --uscan" to update
 version=4
-opts="filenamemangle=s%(?:.*?)?v?(@ANY_VERSION@@ARCHIVE_EXT@)%@PACKAGE@-$1%" \
- https://github.com/bitcoin/secp256k1/tags \
- (?:.*?/)?v?@ANY_VERSION@@ARCHIVE_EXT@
+# check: uscan --report
+# update: gbp import-orig --upstream-vcs-tag=vX.Y.Z --uscan
+
+opts=\
+mode=git,pgpmode=none,pretty=0.1~%cd,\
+https://github.com/bitcoin/secp256k1 HEAD
