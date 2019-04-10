@@ -18,6 +18,7 @@ Standards-Version: 4.1.4
 Homepage: https://github.com/bitcoin/secp256k1
 Vcs-Git: https://salsa.debian.org/cryptocoin-team/libsecp256k1.git
 Vcs-Browser: https://salsa.debian.org/cryptocoin-team/libsecp256k1
+Rules-Requires-Root: no
 
 Package: libsecp256k1-0
 Section: libs
