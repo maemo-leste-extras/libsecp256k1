@@ -1,4 +1,4 @@
-Format: http://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
+Format: https://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
 Upstream-Name: FIXME
 Upstream-Contact: FIXME
 Source: FIXME
@@ -10,6 +10,7 @@ Files: contrib/lax_der_parsing.c
  contrib/lax_der_privatekey_parsing.h
  src/basic-config.h
  src/bench.h
+ src/bench_ecmult.c
  src/bench_internal.c
  src/bench_recover.c
  src/bench_sign.c
@@ -18,9 +19,7 @@ Files: contrib/lax_der_parsing.c
  src/ecdsa_impl.h
  src/eckey.h
  src/eckey_impl.h
- src/ecmult.h
  src/ecmult_gen.h
- src/ecmult_impl.h
  src/field.h
  src/field_10x26.h
  src/field_10x26_impl.h
@@ -53,6 +52,7 @@ Copyright: 2013-2014, Pieter Wuille
   2014, Pieter Wuille
   2014-2015, Pieter Wuille
   2015, Pieter Wuille
+  2017, Pieter Wuille
 License: UNKNOWN
  FIXME
 
@@ -96,9 +96,20 @@ Files: src/ecmult_const.h
  src/modules/ecdh/tests_impl.h
  src/scalar_low.h
  src/scalar_low_impl.h
+ src/scratch.h
+ src/scratch_impl.h
  src/tests_exhaustive.c
 Copyright: 2015, Andrew Poelstra
   2016, Andrew Poelstra
+  2017, Andrew Poelstra
+License: UNKNOWN
+ FIXME
+
+Files: src/bench_ecdh.c
+ src/ecmult.h
+ src/ecmult_const_impl.h
+Copyright: 2013-2014, 2017, Pieter Wuille, Andrew Poelstra
+  2015, Pieter Wuille, Andrew Poelstra
 License: UNKNOWN
  FIXME
 
@@ -106,12 +117,6 @@ Files: src/java/org/bitcoin/NativeSecp256k1Util.java
  src/java/org/bitcoin/Secp256k1Context.java
 Copyright: 2014-2016, the libsecp256k1 contributors
 License: Apache-2.0
- FIXME
-
-Files: src/bench_ecdh.c
- src/ecmult_const_impl.h
-Copyright: 2015, Pieter Wuille, Andrew Poelstra
-License: UNKNOWN
  FIXME
 
 Files: src/ecmult_gen_impl.h
@@ -146,14 +151,13 @@ Copyright: 2016-2017, Jonas Smedegaard <dr@jones.dk>
 License: GPL-3+
  FIXME
 
-Files: debian/rules
-Copyright: -check =
-  2016-2017, Jonas Smedegaard <dr@jones.dk>
-License: GPL-3+
- FIXME
-
 Files: src/field_5x52_asm_impl.h
 Copyright: 2013-2014, Diederik Huys, Pieter Wuille
+License: UNKNOWN
+ FIXME
+
+Files: src/ecmult_impl.h
+Copyright: 2013-2014, 2017, Pieter Wuille, Andrew Poelstra, Jonas Nick
 License: UNKNOWN
  FIXME
 
@@ -164,6 +168,11 @@ License: UNKNOWN
 
 Files: src/asm/field_10x26_arm.s
 Copyright: 2014, Wladimir J. van der Laan
+License: UNKNOWN
+ FIXME
+
+Files: debian/rules
+Copyright: -check =
 License: UNKNOWN
  FIXME
 
