@@ -1,11 +1,5 @@
 #!/usr/bin/make -f
 
-# This needs to run (and thus be declared) before CDBS includes
-debian/control:: debian/control.in
-DEB_PHONY_RULES += debian/control.in
-debian/control.in:: debian/control.in.in
-	sed -e 's/__LIBPKG__/$(libpkg)/g' <$< >$@
-
 DEB_AUTO_UPDATE_LIBTOOL = pre
 DEB_AUTO_UPDATE_ACLOCAL = ,
 DEB_AUTO_UPDATE_AUTOCONF = ,
