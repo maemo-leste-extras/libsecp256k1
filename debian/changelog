@@ -1,3 +1,18 @@
+libsecp256k1 (0.1~20190905-1) experimental; urgency=medium
+
+  [ upstream ]
+  * Snapshot from upstream git.
+
+  [ Jonas Smedegaard ]
+  * Fix have development package depend on pkg-config.
+  * Update watch file: Fix syntax.
+  * Declare compliance with Debian Policy 4.4.0.
+  * Rename patch fix_automake.patch → 1001_fix_automake.patch,
+    and document patch name micro-policy in debian/patches/README.
+    Unfuzz patch 1001.
+
+ -- Jonas Smedegaard <dr@jones.dk>  Mon, 23 Sep 2019 09:38:32 +0200
+
 libsecp256k1 (0.1~20190331-1) experimental; urgency=medium
 
   [ upstream ]

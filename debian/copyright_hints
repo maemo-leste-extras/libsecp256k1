@@ -62,19 +62,19 @@ Files: Makefile.am
  autogen.sh
  build-aux/m4/bitcoin_secp.m4
  configure.ac
- debian/README.source
  debian/compat
  debian/control
- debian/control.in
- debian/control.in.in
  debian/gbp.conf
  debian/libsecp256k1-0.symbols
- debian/patches/fix_automake.patch
+ debian/patches/1001_fix_automake.patch
+ debian/patches/README
  debian/patches/series
+ debian/rules
  debian/source/format
  debian/watch
  include/secp256k1.h
  include/secp256k1_ecdh.h
+ include/secp256k1_preallocated.h
  include/secp256k1_recovery.h
  libsecp256k1.pc.in
  sage/group_prover.sage
@@ -168,11 +168,6 @@ License: UNKNOWN
 
 Files: src/asm/field_10x26_arm.s
 Copyright: 2014, Wladimir J. van der Laan
-License: UNKNOWN
- FIXME
-
-Files: debian/rules
-Copyright: -check =
 License: UNKNOWN
  FIXME
 
