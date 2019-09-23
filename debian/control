@@ -13,7 +13,7 @@ Build-Depends: cdbs,
  pkg-kde-tools
 Maintainer: Debian Cryptocoin Team <team+cryptocoin@tracker.debian.org>
 Uploaders: Jonas Smedegaard <dr@jones.dk>
-Standards-Version: 4.1.4
+Standards-Version: 4.4.0
 Homepage: https://github.com/bitcoin/secp256k1
 Vcs-Git: https://salsa.debian.org/cryptocoin-team/libsecp256k1.git
 Vcs-Browser: https://salsa.debian.org/cryptocoin-team/libsecp256k1
