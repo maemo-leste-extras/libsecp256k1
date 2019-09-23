@@ -46,6 +46,7 @@ Section: libdevel
 Architecture: any
 Multi-Arch: same
 Depends: libsecp256k1-0 (= ${binary:Version}),
+ pkg-config,
  ${devlibs:Depends},
  ${misc:Depends}
 Description: library for EC operations on curve secp256k1 - development headers
