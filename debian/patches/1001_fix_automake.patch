@@ -6,12 +6,12 @@ Last-Update: 2019-04-10
 This patch header follows DEP-3: http://dep.debian.net/deps/dep3/
 --- a/Makefile.am
 +++ b/Makefile.am
-@@ -150,7 +150,7 @@
+@@ -151,7 +151,7 @@
  endif
  
  if USE_ECMULT_STATIC_PRECOMPUTATION
--CPPFLAGS_FOR_BUILD +=-I$(top_srcdir)
-+CPPFLAGS_FOR_BUILD = -I$(top_srcdir)
+-CPPFLAGS_FOR_BUILD +=-I$(top_srcdir) -I$(builddir)/src
++CPPFLAGS_FOR_BUILD := $(CPPFLAGS_FOR_BUILD) -I$(top_srcdir) -I$(builddir)/src
  
  gen_context_OBJECTS = gen_context.o
  gen_context_BIN = gen_context$(BUILD_EXEEXT)
