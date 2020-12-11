@@ -16,14 +16,8 @@ EXP_RELEASE = $(filter experimental% UNRELEASED,$(shell dpkg-parsechangelog -S D
 
 DEB_CONFIGURE_EXTRA_FLAGS += \
  --libdir=\$${prefix}/lib/$(DEB_HOST_MULTIARCH) \
- --enable-endomorphism \
  --enable-module-recovery \
  $(if $(EXP_RELEASE),--enable-experimental)
-
-# avoid accidentally linking against disabled experimental modules
-#CDBS_BUILD_DEPENDS +=, default-jdk-headless | default-jdk, libguava-java
-#DEB_CONFIGURE_EXTRA_FLAGS += --enable-jni
-DEB_CONFIGURE_EXTRA_FLAGS += --disable-jni
 
 DEB_MAKE_CHECK_TARGET = check
 
