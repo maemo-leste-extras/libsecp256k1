@@ -2,7 +2,7 @@ Source: libsecp256k1
 Section: libs
 Priority: optional
 Build-Depends:
- debhelper,
+ debhelper-compat (= 13),
  pkg-config,
  libgmp-dev,
  autoconf-archive,
