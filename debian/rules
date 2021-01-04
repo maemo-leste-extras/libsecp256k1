@@ -1,22 +1,12 @@
 #!/usr/bin/make -f
 
-# resolve if release is experimental
-EXP_RELEASE = $(filter experimental% UNRELEASED,$(shell dpkg-parsechangelog -S Distribution))
-
-DEB_CONFIGURE_EXTRA_FLAGS += \
- --libdir=\$${prefix}/lib/$(DEB_HOST_MULTIARCH) \
- --enable-module-recovery \
- --enable-module-ecdh \
- $(if $(EXP_RELEASE),--enable-experimental)
-
-# relax symbols check when targeting experimental
-export DPKG_GENSYMBOLS_CHECK_LEVEL=$(if $(EXP_RELEASE),0,1)
-
 %:
 	dh $@ --with pkgkde_symbolshelper
 
 override_dh_auto_configure:
-	dh_auto_configure -- $(CONFIGURE_ARGS)
+	dh_auto_configure -- \
+		--enable-module-recovery \
+		--enable-module-ecdh
 
 # Let d-shlibs calculate development package dependencies
 #  and handle shared library install
