@@ -1,3 +1,26 @@
+libsecp256k1 (0.1~20201209-1) experimental; urgency=medium
+
+  [ upstream ]
+  * development snapshot
+
+  [ Jonas Smedegaard ]
+  * declare compliance with Debian Policy 4.5.1
+  * copyright: drop superfluous git protocol Source URL
+  * use debhelper compatibility 10 (not 0)
+  * update source script copyright-check
+  * copyright: update coverage
+  * unfuzz patch 1001
+  * update build routines
+  * enable module ecdh;
+    closes: bug#940967, thanks to Janus Troelsen
+  * simplify build;
+    stop build-depend on cdbs libtool dh-autoreconf
+  * use debhelper compatibility level 13 (not 10);
+    build-depend on debhelper-compat (not debhelper)
+  * update long description, based on upstream README
+
+ -- Jonas Smedegaard <dr@jones.dk>  Mon, 04 Jan 2021 01:42:12 +0100
+
 libsecp256k1 (0.1~20190905-1) experimental; urgency=medium
 
   [ upstream ]
