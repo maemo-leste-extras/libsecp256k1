@@ -1,16 +1,5 @@
 #!/usr/bin/make -f
 
-include /usr/share/cdbs/1/rules/autoreconf.mk
-include /usr/share/cdbs/1/class/autotools.mk
-include /usr/share/cdbs/1/rules/debhelper.mk
-
-pkg = $(DEB_SOURCE_PACKAGE)
-stem = $(patsubst lib%,%,$(pkg))
-abi = 0
-lib = lib$(stem)
-libpkg = lib$(stem)-$(abi)
-devpkg = lib$(stem)-dev
-
 # resolve if release is experimental
 EXP_RELEASE = $(filter experimental% UNRELEASED,$(shell dpkg-parsechangelog -S Distribution))
 
@@ -20,18 +9,19 @@ DEB_CONFIGURE_EXTRA_FLAGS += \
  --enable-module-ecdh \
  $(if $(EXP_RELEASE),--enable-experimental)
 
-DEB_MAKE_CHECK_TARGET = check
-
 # relax symbols check when targeting experimental
 export DPKG_GENSYMBOLS_CHECK_LEVEL=$(if $(EXP_RELEASE),0,1)
 
+%:
+	dh $@ --with pkgkde_symbolshelper
+
+override_dh_auto_configure:
+	dh_auto_configure -- $(CONFIGURE_ARGS)
+
 # Let d-shlibs calculate development package dependencies
 #  and handle shared library install
-binary-post-install/$(libpkg) binary-post-install/$(devpkg):: \
- debian/stamp-local-shlibs-$(lib)
-debian/stamp-local-shlibs-$(lib): \
- binary-install/$(libpkg) \
- binary-install/$(devpkg)
+override_dh_install:
+	dh_install
 	d-shlibmove --commit \
 		--devunversioned \
 		--exclude-la \
@@ -40,10 +30,4 @@ debian/stamp-local-shlibs-$(lib): \
 		--movedev "debian/tmp/usr/include/*" usr/include/ \
 		--movedev "debian/tmp/usr/lib/$(DEB_HOST_MULTIARCH)/pkgconfig/*" \
 			usr/lib/$(DEB_HOST_MULTIARCH)/pkgconfig \
-		debian/tmp/usr/lib/$(DEB_HOST_MULTIARCH)/$(lib).so
-	touch $@
-clean::
-	rm -f debian/stamp-local-shlibs-$(lib)
-
-# track symbols using pkgkde-symbolshelper
-include /usr/share/pkg-kde-tools/makefiles/1/cdbs/symbolshelper.mk
+		debian/tmp/usr/lib/$(DEB_HOST_MULTIARCH)/*.so

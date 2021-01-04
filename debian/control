@@ -1,10 +1,8 @@
 Source: libsecp256k1
 Section: libs
 Priority: optional
-Build-Depends: cdbs,
- libtool,
+Build-Depends:
  debhelper,
- dh-autoreconf,
  pkg-config,
  libgmp-dev,
  autoconf-archive,
