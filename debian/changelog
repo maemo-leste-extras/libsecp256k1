@@ -1,3 +1,10 @@
+libsecp256k1 (0.1~20201209-2) experimental; urgency=medium
+
+  * fix enable modules recovery ecdh,
+    and stop enable experimental (even when targeting experimental)
+
+ -- Jonas Smedegaard <dr@jones.dk>  Mon, 04 Jan 2021 18:37:50 +0100
+
 libsecp256k1 (0.1~20201209-1) experimental; urgency=medium
 
   [ upstream ]
