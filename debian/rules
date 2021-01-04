@@ -16,7 +16,6 @@ override_dh_install:
 		--devunversioned \
 		--exclude-la \
 		--multiarch \
-		--override 's/libgmp10-dev/libgmp-dev/' \
 		--movedev "debian/tmp/usr/include/*" usr/include/ \
 		--movedev "debian/tmp/usr/lib/$(DEB_HOST_MULTIARCH)/pkgconfig/*" \
 			usr/lib/$(DEB_HOST_MULTIARCH)/pkgconfig \
